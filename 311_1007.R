@@ -47,3 +47,4 @@ s$usage[s$land=="E"] <- "Exempt"
 s$usage[s$land=="EA"] <- "Exempt"
 table(s$usage)
 qplot(data=s,x=month,fill=s$usage)
+ggplot(s, aes(month, fill=s$usage)) + geom_bar()
