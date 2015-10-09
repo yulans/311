@@ -47,4 +47,16 @@ s$usage[s$land=="E"] <- "Exempt"
 s$usage[s$land=="EA"] <- "Exempt"
 table(s$usage)
 qplot(data=s,x=month,fill=s$usage)
-ggplot(s, aes(month, fill=s$usage)) + geom_bar()
+
+#Q4
+table(s$type)
+count <- sort(table(s$type),decreasing = T)
+count
+count[1:5]
+t1 <- subset(s,type=="Request for Snow Plowing")
+t2 <- subset(s,type=="Schedule a Bulk Item Pickup")
+t3 <- subset(s,type=="Requests for Street Cleaning")
+t4 <- subset(s,type=="Missed Trash/Recycling/Yard Waste/Bulk Item")
+t5 <- subset(s,type=="Pothole Repair (Internal)")
+t <- rbind(t1,t2,t3,t4,t5)
+ggplot(t, aes(month, fill=t$type)) + geom_bar()
